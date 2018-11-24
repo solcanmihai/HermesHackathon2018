@@ -102,6 +102,9 @@ import { LandingModule } from './landing/landing.module';
 import { DashboardPatientModule } from './dashboard-patient/dashboard-patient.module';
 import { DashboardMedicModule } from './dashboard-medic/dashboard-medic.module';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://192.168.166.171:5000', options: {} };
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -177,7 +180,9 @@ import { DashboardMedicModule } from './dashboard-medic/dashboard-medic.module';
 
         LandingModule,
         DashboardMedicModule,
-        DashboardPatientModule
+        DashboardPatientModule,
+
+        SocketIoModule.forRoot(config) 
     ],
     declarations: [
         AppComponent,

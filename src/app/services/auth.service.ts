@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const API_PATH = 'http://192.168.166.159:5000';
+const API_PATH = 'http://192.168.166.171:5000';
 
 @Injectable({
   providedIn: 'root'

@@ -100,6 +100,7 @@ import {NodeService} from './demo/service/nodeservice';
 import {BreadcrumbService} from './breadcrumb.service';
 import { LandingModule } from './landing/landing.module';
 import { DashboardPatientModule } from './dashboard-patient/dashboard-patient.module';
+import { DashboardMedicModule } from './dashboard-medic/dashboard-medic.module';
 
 @NgModule({
     imports: [
@@ -175,6 +176,7 @@ import { DashboardPatientModule } from './dashboard-patient/dashboard-patient.mo
         TreeTableModule,
 
         LandingModule,
+        DashboardMedicModule,
         DashboardPatientModule
     ],
     declarations: [

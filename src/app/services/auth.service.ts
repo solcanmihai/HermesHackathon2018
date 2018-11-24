@@ -15,6 +15,10 @@ export class AuthService {
   ) {
   }
 
+  getUrl(){
+    return API_PATH;
+  }
+
   setToken(token){
     this.token = token;
     localStorage.setItem('token', this.token);

@@ -26,6 +26,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.model = [
             {label: 'Dashboard', icon: 'dashboard', routerLink: ['/patient-dashboard']},
+            {label: 'Orders history', icon: 'list', routerLink: ['/patient-dashboard/ordersHistory']},
             {
                 label: 'Menu Modes', icon: 'settings',
                 items: [

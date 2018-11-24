@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   handleClick(){
-    this.dataService.sendHelpRequest(this.description).subscribe(data => {
+    this.dataService.sendHelpRequest(this.description, this.lat, this.long).subscribe(data => {
       console.log(data);
     })
   }

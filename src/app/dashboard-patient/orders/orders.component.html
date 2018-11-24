@@ -1,0 +1,27 @@
+<div class="ui-g dashboard">
+  <div class="ui-g-12">
+            <div class="user-card card">
+                <div class="user-card-header">
+                    <img src="assets/layout/images/dashboard/usercard.png" library="serenity-layout" width="100"/>
+                </div>
+                <div class="user-card-content">
+                    <img style="border-radius: 50%; height: 75px;" src="https://randomuser.me/api/portraits/men/65.jpg" library="serenity-layout" />
+
+                    <div class="user-card-name">
+                        <span>Solcan Mihai</span>
+                    </div>
+
+                    <div class="user-detail">
+                       <ul>
+                         <li routerLink="/" style="cursor: hover" *ngFor="let item of orders" class="clearfix">
+                             <span class="project-title">{{item.date}} </span>
+                             <span class="project-detail">{{item.description}}</span>
+                             <span class="project-detail"> -- {{item.status}}</span>
+                         </li>
+                         
+                       </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>  

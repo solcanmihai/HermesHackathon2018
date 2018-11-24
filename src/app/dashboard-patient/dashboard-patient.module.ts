@@ -74,6 +74,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
 import { PatientChatComponent } from './patient-chat/patient-chat.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   imports: [
@@ -156,6 +158,14 @@ import { PatientChatComponent } from './patient-chat/patient-chat.component';
           {
             path: 'chat/:userId',
             component: PatientChatComponent
+          },
+          {
+            path: 'ordersHistory',
+            component: OrdersComponent
+          },
+          {
+            path: 'orderDetails',
+            component: OrderDetailsComponent
           }
         ]
       }
@@ -169,7 +179,9 @@ import { PatientChatComponent } from './patient-chat/patient-chat.component';
     AppTopBarComponent,
     AppMenuComponent,
     AppSubMenuComponent,
-    PatientChatComponent
+    PatientChatComponent,
+    OrdersComponent,
+    OrderDetailsComponent
   ]
 })
 export class DashboardPatientModule { }

@@ -23,6 +23,14 @@ export class DataService {
       long
     }
     return this.http.post(API_PATH + '/emergency', body);
+  }
 
+
+  getOrdersHistory(){
+    let token = this.authService.getToken();
+    let body = {
+      token
+    }
+    return this.http.post(API_PATH + '/getEmergencies', body);
   }
 }

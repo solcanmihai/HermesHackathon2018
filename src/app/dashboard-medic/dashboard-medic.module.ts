@@ -73,6 +73,7 @@ import { TreeTableModule } from 'primeng/treetable';
 import { RouterModule } from '@angular/router';
 import { MedicDashboardComponent } from './medic-dashboard/medic-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MedicChatComponent } from './medic-chat/medic-chat.component';
 @NgModule({
   imports: [
       AccordionModule,
@@ -145,13 +146,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RouterModule.forRoot([
       {
         path: 'medic-dashboard',
-        component: DashboardComponent
-        // children:[
-        //   {
-        //     path: '',
-        //     component: DashboardComponent
-        //   }
-        // ]
+        component: MedicDashboardComponent,
+        children:[
+          {
+            path: '',
+            component: DashboardComponent
+          },
+          {
+            path: 'chat/:id',
+            component: MedicChatComponent
+          }
+        ]
       }
     ]),
     SharedModule
@@ -162,7 +167,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppMenuComponent,
     AppTopBarComponent,
     AppSubMenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    MedicChatComponent
   ]
 })
 export class DashboardMedicModule { }

@@ -10,12 +10,22 @@ import { DataService } from 'src/app/services/data.service';
 export class DashboardComponent implements OnInit {
 
   description = null;
+  lat = null;
+  long = null;
 
   constructor(
     private dataService: DataService
   ) { }
 
   ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude
+        this.long = position.coords.longitude
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
   }
 
   handleClick(){

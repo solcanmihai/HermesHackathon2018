@@ -14,11 +14,13 @@ export class DataService {
     private http: HttpClient
   ) { }
 
-  sendHelpRequest(description){
+  sendHelpRequest(description, lat, long){
     let token = this.authService.getToken();
     let body = {
       token,
-      description
+      description,
+      lat,
+      long
     }
     return this.http.post(API_PATH + '/emergency', body);
 

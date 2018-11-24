@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { interval, Subscription } from 'rxjs';
+import { interval, Subscription} from 'rxjs';
 import { Socket } from 'ngx-socket-io';
 import { AuthService } from '../../services/auth.service';
-
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -37,13 +37,14 @@ export class DashboardComponent implements OnInit {
       } else {
         alert("Geolocation is not supported by this browser.");
       }
-    }
-
-      
-    );
+    });
 
 
     
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
   sendMessage(){
@@ -54,6 +55,18 @@ export class DashboardComponent implements OnInit {
     }
 
     this.socket.emit("location", body);
-    console.log(body)
+    //console.log(body)
   }
+
+  getMessage() {
+    return this.socket.on("message", value => {
+        console.log('s')
+    })}
+
+//   getMessage() {
+//     return this.socket
+//         .fromEvent("message")
+//         .map( data => console.log(data['message']));
+// }
+
 }

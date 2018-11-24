@@ -1,0 +1,556 @@
+<div class="ui-g dashboard">
+    <div class="ui-g-12 ui-lg-4">
+        <div class="task-box task-box-1">
+            <div class="task-box-header">
+                <i class="material-icons">refresh</i>
+            </div>
+            <div class="task-box-content">
+                <h3>Client Meeting</h3>
+                <p>Waiting brief from the client</p>
+            </div>
+            <div class="task-box-footer">
+                <span class="task-status">WAITING</span>
+                <img src="assets/layout/images/avatar1.png">
+                <img src="assets/layout/images/avatar2.png">
+                <img src="assets/layout/images/avatar3.png">
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-lg-4">
+        <div class="task-box task-box-2">
+            <div class="task-box-header">
+                <i class="material-icons">refresh</i>
+            </div>
+            <div class="task-box-content">
+                <h3>Sale Reports</h3>
+                <p>Annual reports per branch</p>
+            </div>
+            <div class="task-box-footer">
+                <span class="task-status">IN PROGRESS</span>
+                <img src="assets/layout/images/avatar2.png">
+                <img src="assets/layout/images/avatar3.png">
+                <img src="assets/layout/images/avatar4.png">
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-lg-4">
+        <div class="task-box task-box-3">
+            <div class="task-box-header">
+                <i class="material-icons">refresh</i>
+            </div>
+            <div class="task-box-content">
+                <h3>Marketing Meeting</h3>
+                <p>Marketing meeting to review sales.</p>
+            </div>
+            <div class="task-box-footer">
+                <span class="task-status">ON HOLD</span>
+                <img src="assets/layout/images/avatar1.png">
+                <img src="assets/layout/images/avatar2.png">
+                <img src="assets/layout/images/avatar3.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-3">
+        <div class="overview-box overview-box-1">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">inbox</i></div>
+                <div class="overview-box-title">Messages</div>
+                <div class="overview-box-count">152</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-3">
+        <div class="overview-box overview-box-2">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">person_pin_circle</i></div>
+                <div class="overview-box-title">Check-Ins</div>
+                <div class="overview-box-count">532</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-3">
+        <div class="overview-box overview-box-3">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">insert_drive_file</i></div>
+                <div class="overview-box-title">Files Sycned</div>
+                <div class="overview-box-count">28</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-3">
+        <div class="overview-box overview-box-4">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">supervisor_account</i></div>
+                <div class="overview-box-title">Users Online</div>
+                <div class="overview-box-count">256</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-4 task-list">
+        <p-panel header="Tasks">
+            <button pButton type="button" icon="ui-icon-menu" class="secondary-btn" (click)="menu.toggle($event)"></button>
+            <p-menu #menu popup="popup" [model]="items" [style]="{'width': '12.5em'}"></p-menu>
+
+            <ul class="task-list-container">
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Sales Reports</span>
+                    <i class="material-icons">shop</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Pay Invoices</span>
+                    <i class="material-icons">credit_card</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Dinner with Tony</span>
+                    <i class="material-icons">local_dining</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Client Meeting</span>
+                    <i class="material-icons">alarm</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">New Theme</span>
+                    <i class="material-icons">palette</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Flight Ticket</span>
+                    <i class="material-icons">flight</i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">Guide Translation</span>
+                    <i class="material-icons">translate</i>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid contact-form">
+        <p-panel header="Contact Us">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <p-dropdown [options]="cities" [autoWidth]="false" [(ngModel)]="selectedCity"></p-dropdown>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input id="name" type="text" pInputText />
+                        <label for="name">Name</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input id="age" type="text" pInputText />
+                        <label for="age">Age</label>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="md-inputfield">
+                        <input id="message" type="text" pInputText />
+                        <label for="message">Message</label>
+                    </span>
+                </div>
+            </div>
+            <button type="button" label="Send" icon="ui-icon-send" pButton></button>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-lg-4 messages">
+        <p-panel header="Messages">
+            <ul>
+                <li>
+                    <div>
+                        <img src="assets/layout/images/avatar1.png" width="45">
+                        <div>
+                            <span class="name">Joshua Williams</span>
+                            <span class="message">Sales reports attached.</span>
+                        </div>
+                        <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                        <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="assets/layout/images/avatar2.png" width="45">
+                        <div>
+                            <span class="name">Emily Watson</span>
+                            <span class="message">Meeting at 2pm tomorrow.</span>
+                        </div>
+                        <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                        <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="assets/layout/images/avatar3.png" width="45">
+                        <div>
+                            <span class="name">James White</span>
+                            <span class="message">Status update required.</span>
+                        </div>
+                        <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                        <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="assets/layout/images/avatar4.png" width="45">
+                        <div>
+                            <span class="name">David Hughes</span>
+                            <span class="message">Exchange rates estimates.</span>
+                        </div>
+                        <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                        <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                    </div>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+        <div class="ui-g-12 chat">
+            <p-panel header="Chat">
+                <p-tabView>
+                    <p-tabPanel header="Sales Team">
+                        <ul class="chat-messages">
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar2.png" library="serenity-layout" />
+                                <span>Retro occupy organic, stumptown shabby chic pour-over roof party DIY normcore.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>Actually artisan organic occupy, Wes Anderson ugh whatever pour-over gastropub selvage.</span>
+                            </li>
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar2.png" library="serenity-layout" />
+                                <span>Chillwave craft beer tote bag stumptown quinoa hashtag.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>Dreamcatcher locavore iPhone chillwave, occupy trust fund slow-carb distillery art party narwhal.</span>
+                            </li>
+                            <li class="message-own">
+                                <span>Sed ut perspiciatis unde omnis iste natus.</span>
+                            </li>
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar2.png" library="serenity-layout" />
+                                <span>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>At vero eos et accusamus.</span>
+                            </li>
+                        </ul>
+                    </p-tabPanel>
+                    <p-tabPanel header="Design Team">
+                        <ul class="chat-messages">
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar3.png" library="serenity-layout" />
+                                <span>Cliche flannel fam mixtape.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>Tofu glossier bicycle rights banh mi direct trade austin salvia slow-carb occupy.</span>
+                            </li>
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar3.png" library="serenity-layout" />
+                                <span>Crucifix tote bag pork belly distillery church-key jianbing jean shorts taxidermy.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>Deep v hexagon street art migas butcher, keytar biodiesel bicycle rights typewriter cornhole actually next.</span>
+                            </li>
+                            <li class="message-own">
+                                <span>Oh. You need a little dummy text for your mockup? How quaint.</span>
+                            </li>
+                            <li class="message-from">
+                                <img src="assets/layout/images/avatar3.png" library="serenity-layout" />
+                                <span>Salvia woke bushwick leggings mumblecore poke tumblr master cleanse.</span>
+                            </li>
+                            <li class="message-own">
+                                <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                                <span>Skateboard ethical adaptogen, quinoa wolf poutine echo park.</span>
+                            </li>
+                        </ul>
+                    </p-tabPanel>
+                </p-tabView>
+
+                <div class="new-message">
+                    <div class="message-attachment">
+                        <i class="material-icons">&#xE226;</i>
+                    </div>
+                    <div class="message-input">
+                        <input type="text" placeholder="Write a message" />
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+
+        <div class="ui-g-12 status-bars">
+            <div class="card">
+                <ul>
+                    <li>
+                        <div class="status-bar status-bar-1">
+                            <div class="status-bar-value" style="width:22%">22%</div>
+                        </div>
+                        <span>Users</span>
+                        <i class="material-icons">&#xE853;</i>
+                    </li>
+                    <li>
+                        <div class="status-bar status-bar-2">
+                            <div class="status-bar-value" style="width:78%">78%</div>
+                        </div>
+                        <span>Confirmed</span>
+                        <i class="material-icons">&#xE86C;</i>
+                    </li>
+                    <li>
+                        <div class="status-bar status-bar-3">
+                            <div class="status-bar-value" style="width:51%">51%</div>
+                        </div>
+                        <span>Defects</span>
+                        <i class="material-icons">&#xE868;</i>
+                    </li>
+                    <li>
+                        <div class="status-bar status-bar-4">
+                            <div class="status-bar-value" style="width:68%">68%</div>
+                        </div>
+                        <span>Issues</span>
+                        <i class="material-icons">&#xE8B2;</i>
+                    </li>
+                    <li>
+                        <div class="status-bar status-bar-5">
+                            <div class="status-bar-value" style="width:80%">80%</div>
+                        </div>
+                        <span>Searches</span>
+                        <i class="material-icons">&#xE8B6;</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-lg-6 ui-g-nopad">
+        <div class="ui-g-12 global-sales">
+            <p-panel>
+                <p-header>
+                    Global Sales by Region
+                    <span class="header-helper">Last Update: 21m</span>
+                </p-header>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>Total Sales</th>
+                            <th>Change</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="assets/layout/images/dashboard/flag-brazil.png" library="serenity-layout" width="45"></td>
+                            <td>BRAZIL</td>
+                            <td>4234</td>
+                            <td>35%</td>
+                            <td><i class="material-icons up-arrow">&#xE5D8;</i></td>
+                            <td>
+                                <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                                <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="assets/layout/images/dashboard/flag-china.png" library="serenity-layout" width="45"></td>
+                            <td>CHINA</td>
+                            <td>3214</td>
+                            <td>25%</td>
+                            <td><i class="material-icons up-arrow">&#xE5D8;</i></td>
+                            <td>
+                                <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                                <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="assets/layout/images/dashboard/flag-belgium.png" library="serenity-layout" width="45"></td>
+                            <td>BELGIUM</td>
+                            <td>2842</td>
+                            <td>28%</td>
+                            <td><i class="material-icons down-arrow">&#xE5DB;</i></td>
+                            <td>
+                                <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                                <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><img src="assets/layout/images/dashboard/flag-france.png" library="serenity-layout" width="45"></td>
+                            <td>FRANCE</td>
+                            <td>1942</td>
+                            <td>15%</td>
+                            <td><i class="material-icons down-arrow">&#xE5DB;</i></td>
+                            <td>
+                                <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                                <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><img src="assets/layout/images/dashboard/flag-uk.png" library="serenity-layout" width="45"></td>
+                            <td>UK</td>
+                            <td>1956</td>
+                            <td>25%</td>
+                            <td><i class="material-icons up-arrow">&#xE5DB;</i></td>
+                            <td>
+                                <button pButton type="button" icon="ui-icon-close" title="Reply" class="remove-btn"></button>
+                                <button pButton type="button" icon="ui-icon-message" title="Reply" class="message-btn secondary-btn"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p-panel>
+        </div>
+
+        <div class="ui-g-12 image-box">
+            <div class="card">
+                <img src="assets/layout/images/dashboard/gradient-waters.png" library="serenity-layout" />
+
+                <div class="image-box-content">
+                    <h3>Gradient Waters</h3>
+                    <span class="image-box-tag">article</span>
+                    <p>
+                        Derive inexpedient reason law virtues superiority victorious. Overcome pious horror suicide revaluation. Holiest ocean society disgust passion value love.
+                        Faithful mountains morality hope disgust merciful moral will revaluation society fearful love.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                        culpa ratione quam perferendis esse, cupiditate neque quas!
+                    </p>
+                    <p>
+                        In et blandit turpis, ut congue nibh. Nam vitae tincidunt nunc, sed accumsan lacus. Sed efficitur malesuada augue ut varius. Pellentesque ultricies leo massa, eu posuere diam sodales quis.
+                    </p>
+                    <div class="image-box-footer">
+                        <button pButton type="button" icon="ui-icon-close" title="Close" label="Close" class="remove-btn orange-btn" style="margin-right:4px;"></button>
+                        <button pButton type="button" icon="ui-icon-add" title="New" label="New" class="message-btn secondary-btn"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui-g-12 ui-lg-8">
+        <div class="card">
+            <p-table [columns]="cols" [value]="cars" selectionMode="single" dataKey="vin" [(selection)]="selectedCar" [style]="{'margin-bottom':'20px'}">
+                <ng-template pTemplate="caption">
+                    Recent Sales
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                      </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                      </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            <p-panel header="Sales Graph">
+                <div style="overflow:auto">
+                    <p-chart type="line" [data]="chartData" responsive="true"></p-chart>
+                </div>
+            </p-panel>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-lg-4">
+        <div class="ui-g-12">
+            <div class="user-card card">
+                <div class="user-card-header">
+                    <img src="assets/layout/images/dashboard/usercard.png" library="serenity-layout" width="100"/>
+                </div>
+                <div class="user-card-content">
+                    <img src="assets/layout/images/avatar.png" library="serenity-layout" />
+                    <button pButton type="button" icon="ui-icon-settings" class="secondary-btn"></button>
+
+                    <div class="user-card-name">
+                        <span>Wendy Lorina</span>
+                    </div>
+
+                    <div class="user-detail">
+                       <ul>
+                         <li class="clearfix">
+                             <i class="material-icons">assignment</i>
+                             <span class="project-title">Tasks</span>
+                             <span class="project-detail">3 open</span>
+                             <div class="project-progressbar">
+                                 <div class="project-progressbar-value" style="width: 50%"></div>
+                             </div>
+                         </li>
+                         <li class="clearfix">
+                             <i class="material-icons">attach_money</i>
+                             <span class="project-title">Revenue</span>
+                             <span class="project-detail">+20%</span>
+                             <div class="project-progressbar">
+                                 <div class="project-progressbar-value" style="width: 20%"></div>
+                             </div>
+                         </li>
+                         <li class="clearfix">
+                             <i class="material-icons">payment</i>
+                             <span class="project-title">Payments</span>
+                             <span class="project-detail">24 new</span>
+                             <div class="project-progressbar">
+                                 <div class="project-progressbar-value" style="width: 65%"></div>
+                             </div>
+                         </li>
+                         <li class="clearfix">
+                             <i class="material-icons">business_center</i>
+                             <span class="project-title">Clients</span>
+                             <span class="project-detail">+80%</span>
+                             <div class="project-progressbar">
+                                 <div class="project-progressbar-value" style="width: 80%"></div>
+                             </div>
+                         </li>
+                         <li class="clearfix">
+                             <i class="material-icons">pie_chart</i>
+                             <span class="project-title">Turnover</span>
+                             <span class="project-detail">+40%</span>
+                             <div class="project-progressbar">
+                                 <div class="project-progressbar-value" style="width: 40%"></div>
+                             </div>
+                         </li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-g-12 map">
+            <p-panel header="Map">
+                <img src="assets/layout/images/dashboard/map.png" library="serenity-layout" />
+            </p-panel>
+        </div>
+    </div>
+
+    <div class="ui-g-12 schedule">
+        <p-panel header="Calendar" [style]="{'height':'100%'}">
+            <p-schedule [events]="events" defaultDate="2016-01-12"[header]="header"></p-schedule>
+        </p-panel>
+    </div>
+</div>

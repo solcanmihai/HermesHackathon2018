@@ -37,4 +37,12 @@ export class DataService {
     }
     return this.http.post(API_PATH + '/getMyEmergencies', body);
   }
+
+  getOrderById(id){
+    let body = {
+      emergency_id: id,
+      token: this.authService.getToken()
+    }
+    return this.http.post(API_PATH + '/getEmergencyById', body);
+  }
 }

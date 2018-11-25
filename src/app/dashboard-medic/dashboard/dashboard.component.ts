@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { interval, Subscription} from 'rxjs';
 import { Socket } from 'ngx-socket-io';
-import { AuthService } from '../../services/auth.service';
 import 'rxjs/add/operator/map';
 import { identifierModuleUrl } from '@angular/compiler';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 

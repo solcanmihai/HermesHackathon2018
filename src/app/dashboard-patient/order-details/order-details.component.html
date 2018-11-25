@@ -1,16 +1,21 @@
-<p-fieldset legend="Intervention info" [toggleable]="true">
-        <h4>Problema:</h4>
-        <div class="card">
-            Dureri abdominale si toracice
-        </div>
-            
+<div *ngIf="dataLoaded">
+    <p-fieldset legend="Intervention info" [toggleable]="true">
+            <p>status: {{order.status}}</p>
         
-
-        <h4>Diagnostic:</h4>
-        <div class="card">
-                Se recomanda ca pacientul sa steala pat in jur de 20 d eminute
+            <h4>Problema:</h4>
+            <div class="card">
+                Dureri abdominale si toracice
             </div>
-</p-fieldset> 
+                
+            <ng-template *ngIf="order.status != 'pending'">
+                <h4>Diagnostic:</h4>
+                <div class="card">
+                    Se recomanda ca pacientul sa steala pat in jur de 20 d eminute
+                </div>
+            </ng-template>
+    </p-fieldset> 
 
-<p-gmap [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
-
+    <ng-template *ngIf="order.status != 'pending'">
+        <p-gmap [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
+    </ng-template>
+</div>

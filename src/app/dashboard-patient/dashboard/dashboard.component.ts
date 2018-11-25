@@ -32,8 +32,9 @@ export class DashboardComponent implements OnInit {
 
   handleClick(){
     this.dataService.sendHelpRequest(this.description, this.lat, this.long).subscribe(data => {
-      console.log('wtf')
-      this.router.navigateByUrl('/patient-dashboard')
+      console.log(data);
+      let newId = data['emergency_id']
+      this.router.navigateByUrl('/patient-dashboard/orderDetails/' + newId);
     })
   }
 

@@ -76,6 +76,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MedicChatComponent } from './medic-chat/medic-chat.component';
 import { MedicOrderComponent } from './medic-order/medic-order.component';
 import {GMapModule} from 'primeng/gmap';
+import { OrdersHistoryComponent } from './orders-history/orders-history.component';
 
 @NgModule({
   imports: [
@@ -177,7 +178,8 @@ import {GMapModule} from 'primeng/gmap';
     AppSubMenuComponent,
     DashboardComponent,
     MedicChatComponent,
-    MedicOrderComponent
+    MedicOrderComponent,
+    OrdersHistoryComponent
   ]
 })
 export class DashboardMedicModule { }

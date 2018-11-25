@@ -1,8 +1,13 @@
 <div class="ui-g ui-fluid dashboard">
-    <div class="ui-g-12 ui-lg-8">
+    <div class="ui-g-12 ui-lg-12">
         <!-- Left Side -->
         <div class="card card-w-title">
-            <h1>Call for help</h1>
+            <h1 style = 
+            "  font-size: 20px;
+               margin-left: 20px;
+               size: 2000px;
+               text-align: center;
+            "> Get medical help right now. Just write down the problem you have: </h1>
             <div class="ui-g form-group">
                 <div class="ui-g-12 ui-md-12">
                     <span class="md-inputfield">
@@ -12,22 +17,10 @@
                 </div>
                 
                 <div>
-                  <button (click)="handleClick()" pButton label="Send" class="ui-button-danger"></button>
+                  <button style="width:120px" (click)="handleClick()" pButton label="Send" class="ui-button-danger"><i style="margin-top:5px" class="material-icons">healing</i></button>
                 </div>
-
             </div>
-
-            
         </div>
     </div>
-   <div class="ui-g-12 ui-md-4">
-      <div class="overview-box overview-box-1">
-          <div class="overview-box-header"></div>
-          <div class="overview-box-content">
-              <div class="overview-box-icon"><i class="material-icons">inbox</i></div>
-              <div class="overview-box-title">Consultatiile mele</div>
-              <div class="overview-box-count">12</div>
-          </div>
-      </div>
-  </div>
+    
 </div>

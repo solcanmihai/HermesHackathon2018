@@ -9,7 +9,9 @@ export class MedicOrderComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+ 
   }
 
 }

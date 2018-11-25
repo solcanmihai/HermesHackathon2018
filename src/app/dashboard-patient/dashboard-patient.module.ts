@@ -76,6 +76,7 @@ import { TreeTableModule } from 'primeng/treetable';
 import { PatientChatComponent } from './patient-chat/patient-chat.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import {GMapModule} from 'primeng/gmap';
 
 @NgModule({
   imports: [
@@ -144,6 +145,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
         TooltipModule,
         TreeModule,
         TreeTableModule,
+        GMapModule,
 
     CommonModule,
     RouterModule.forRoot([
@@ -164,7 +166,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
             component: OrdersComponent
           },
           {
-            path: 'orderDetails',
+            path: 'orderDetails/:userId',
             component: OrderDetailsComponent
           }
         ]

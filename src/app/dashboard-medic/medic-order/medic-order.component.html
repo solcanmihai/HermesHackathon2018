@@ -1,29 +1,28 @@
 
-<div class="card card-w-title">
+<div *ngIf="userData && orderData" class="card card-w-title">
     <h1>Description about pacient:</h1>
       <br>
       <br>
       <div class="ui-g form-group">
           <div class="ui-g-12 ui-md-4">
               <span class="md-inputfield">
-                  <input type="text" pInputText value="Alexandru-Ion" readonly>
-                  <label>First Name</label>
+                  <input type="text" pInputText value={{userData.first_name}}  readonly>
+                  <label>First name</label>
               </span>
           </div>
           <div class="ui-g-12 ui-md-4">
               <span class="md-inputfield">
-                  <input type="text" pInputText value="Benchea" readonly>
-                  <label>Last Name</label>
+                  <input type="text" pInputText value={{userData.last_name}}  readonly>
+                  <label>Last name</label>
               </span>
           </div>
           <div class="ui-g-12 ui-md-4">
               <span class="md-inputfield">
-                  <input type="text" pInputText value="0732626589" readonly>
+                  <input type="text" pInputText value={{userData.phone}} readonly>
                   <label>Phone</label>
               </span>
           </div>
       </div>
-</div>
 <!-- <p-fieldset> -->
 <!-- //<p-fieldset legend="Intervention info" [toggleable]="true"></p-fieldset> -->
 <!-- <p-fieldset legend="Intervention info" [toggleable]="true"></p-fieldset> -->
@@ -31,7 +30,8 @@
     <h1>Description about the problem:</h1>
     
     <p-fieldset>
-        Mergeam pe strada si mi-am dat seama ca soarele e rotund, asa ca m-am prajit si am mers la maneloteca. ma doare burta la cat am baut. help. lmao
+        {{orderData.description}}
+        <!-- Mergeam pe strada si mi-am dat seama ca soarele e rotund, asa ca m-am prajit si am mers la maneloteca. ma doare burta la cat am baut. help. lmao -->
     </p-fieldset>
 </div>
 <!-- </p-fieldset> -->
@@ -79,7 +79,4 @@
         </div>
     </div>
 </div>
-
-
-
-
+</div>

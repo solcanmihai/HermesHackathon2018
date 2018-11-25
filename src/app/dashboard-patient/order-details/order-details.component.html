@@ -19,8 +19,8 @@
         <p-gmap [overlays]="overlays" [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
     </div>
     
-    <div *ngIf="order.status == 'Completed'">
-        <h2 style="text-align: center">Review for pacient:</h2>
+    <div *ngIf="order.status == 'Completed' && !order.rating">
+        <h2 style="text-align: center">Review for doctor:</h2>
         <p-rating [(ngModel)]="reviewVal" [cancel]="false" style="text-align: center; size:25px"></p-rating>
         <input [(ngModel)]="reviewText" style="width: 100%" type="text" pInputText />
         <button (click)="sendReview()">Send review</button>
@@ -28,8 +28,8 @@
 
     <br>
     <br>
-    <p-card header="Rating">
-        <p-rating [(ngModel)]="reviewVal" readonly="true" [cancel]= "false" style="text-align: center; size:25px"></p-rating>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aspernatur excepturi incidunt sequi modi possimus facilis necessitatibus. Voluptate magni sit laboriosam culpa ad rem expedita error placeat. Vero quis recusandae nobis sunt, necessitatibus labore reprehenderit tenetur, officiis minus porro dolore itaque rerum voluptatibus incidunt laborum animi. Enim iste esse a!</p>
+    <p-card *ngIf="order.rating" header="Rating">
+        <p-rating [(ngModel)]="order.rating" readonly="true" [cancel]= "false" style="text-align: center; size:25px"></p-rating>
+        <p>{{order.rating_description}} </p>
     </p-card>
 </div>

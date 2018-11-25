@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
 
   getMessage() {
     return this.socket.on("message", value => {
-        console.log('s')
+        console.log(value)
     })}
 
 //   getMessage() {

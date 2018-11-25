@@ -74,6 +74,7 @@ import { RouterModule } from '@angular/router';
 import { MedicDashboardComponent } from './medic-dashboard/medic-dashboard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MedicChatComponent } from './medic-chat/medic-chat.component';
+import { MedicOrderComponent } from './medic-order/medic-order.component';
 @NgModule({
   imports: [
       AccordionModule,
@@ -168,7 +169,8 @@ import { MedicChatComponent } from './medic-chat/medic-chat.component';
     AppTopBarComponent,
     AppSubMenuComponent,
     DashboardComponent,
-    MedicChatComponent
+    MedicChatComponent,
+    MedicOrderComponent
   ]
 })
 export class DashboardMedicModule { }

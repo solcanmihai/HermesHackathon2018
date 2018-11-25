@@ -75,6 +75,8 @@ import { MedicDashboardComponent } from './medic-dashboard/medic-dashboard.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MedicChatComponent } from './medic-chat/medic-chat.component';
 import { MedicOrderComponent } from './medic-order/medic-order.component';
+import {GMapModule} from 'primeng/gmap';
+
 @NgModule({
   imports: [
       AccordionModule,
@@ -142,6 +144,7 @@ import { MedicOrderComponent } from './medic-order/medic-order.component';
         TooltipModule,
         TreeModule,
         TreeTableModule,
+        GMapModule,
 
     CommonModule,
     RouterModule.forRoot([

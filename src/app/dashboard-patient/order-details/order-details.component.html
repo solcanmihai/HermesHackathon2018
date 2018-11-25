@@ -1,21 +1,21 @@
 <div *ngIf="dataLoaded">
     <p-fieldset legend="Intervention info" [toggleable]="true">
-            <p>status: {{order.status}}</p>
+            <p>Status: {{order.status}}</p>
         
             <h4>Problema:</h4>
             <div class="card">
-                Dureri abdominale si toracice
+                {{order.description}}
             </div>
                 
-            <ng-template *ngIf="order.status != 'pending'">
+            <ng-template *ngIf="order.status == 'Completed'">
                 <h4>Diagnostic:</h4>
                 <div class="card">
-                    Se recomanda ca pacientul sa steala pat in jur de 20 d eminute
+                    {{order.diagnosis}}
                 </div>
             </ng-template>
     </p-fieldset> 
 
-    <ng-template *ngIf="order.status != 'pending'">
+    <div *ngIf="order.status == 'Accepted'">
         <p-gmap [overlays]="overlays" [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
-    </ng-template>
+    </div>
 </div>

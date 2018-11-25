@@ -27,6 +27,8 @@ export class OrderDetailsComponent implements OnInit {
   options: any;
   subscription: Subscription;
 
+  medicPosition;
+
   overlays: any[];
 
   getData(){
@@ -48,10 +50,20 @@ export class OrderDetailsComponent implements OnInit {
       };
 
       this.overlays = [
-        new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}),
-        new google.maps.Marker({position: {lat: 36.883707, lng: 30.689216}, title:"Ataturk Park"}),
+        // new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}),
+        // new google.maps.Marker({position: {lat: 36.883707, lng: 30.689216}, title:"Ataturk Park"}),
       ];
       this.listenForAccept();
+      this.getMedicPosition();
+  }
+
+  getMedicPosition(){
+    this.socket.on("location", value => {
+      if(value['user_id'] == this.order['medic_id']){
+        this.medicPosition = value;
+        this.overlays.push(new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}));
+      }
+    })
   }
 
   listenForAccept(){

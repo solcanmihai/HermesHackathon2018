@@ -19,12 +19,11 @@
                 {{order.description}}
             </div>
                 
-            <ng-template *ngIf="order.status == 'Completed'">
+            <div *ngIf="order.status == 'Completed'">
                 <h4>Diagnostic:</h4>
-                <div class="card">
-                    {{order.diagnosis}}
+                <div class="card" [innerHTML]='order.diagnosis'>
                 </div>
-            </ng-template>
+            </div>
     </p-fieldset> 
 
     <div *ngIf="order.status == 'Accepted' && locationEnabled">

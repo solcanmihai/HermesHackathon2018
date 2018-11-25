@@ -18,6 +18,7 @@ export class MedicOrderComponent implements OnInit {
     private socket: Socket
   ) { }
 
+  text: any
 
   options: any;
 

@@ -18,12 +18,6 @@
     <div class="layout-topbar-menu-wrapper">
         <ul class="topbar-menu fadeInDown" [ngClass]="{'topbar-menu-active': app.topbarMenuActive}" (click)="app.onTopbarMenuClick($event)">
             <li #profile class="profile-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === profile}" (click)="app.onTopbarRootItemClick($event, profile)">
-                <a href="#">
-                    <span class="profile-image-wrapper">
-                        <img src="assets/layout/images/avatar.png"/>
-                    </span>
-                    <span class="topbar-item-name profile-name">Solcan Mihai</span>
-                </a>
             </li>
         </ul>
     </div>

@@ -13,7 +13,7 @@
 
                     <div class="user-detail">
                        <ul>
-                         <li routerLink="/" style="cursor: hover" *ngFor="let item of orders" class="clearfix">
+                         <li [routerLink]="'/patient-dashboard/orderDetails/' + i" style="cursor: hover" *ngFor="let item of orders; let i = index;" class="clearfix">
                              <span class="project-title">{{item.date}} </span>
                              <span class="project-detail">{{item.description}}</span>
                              <span class="project-detail"> -- {{item.status}}</span>

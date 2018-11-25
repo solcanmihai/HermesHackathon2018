@@ -85,7 +85,7 @@ export class OrderDetailsComponent implements OnInit {
     this.dataService.sendReview(this.reviewVal, this.id, this.reviewText).subscribe(data => {
       this.order.rating = this.reviewVal;
       this.order.rating_description = this.reviewText;
-      console.log(data);
+      this.getData();
     })
   }
 

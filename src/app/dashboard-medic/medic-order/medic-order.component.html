@@ -1,6 +1,31 @@
 
 <div *ngIf="userData && orderData" class="card card-w-title">
-    <h1>Description about pacient:</h1>
+        <h4>Status </h4>
+
+        <div class="card" *ngIf="orderData.status == 'Completed'" style="color:white; background-color: green">
+            {{orderData.status}}
+        </div>
+
+        <div class="card" *ngIf="orderData.status == 'Pending'" style="color:white; background-color: orangered">
+            {{orderData.status}}
+        </div>
+
+        <div class="card" *ngIf="orderData.status == 'Accepted'" style="color:white; background-color: rgb(0, 182, 182)">
+            {{orderData.status}}
+        </div>
+        
+        <h4>Problema</h4>
+        <div class="card">
+            {{orderData.description}}
+        </div>
+            
+        <div *ngIf="orderData.status == 'Completed'">
+            <h4>Diagnostic:</h4>
+            <div class="card" [innerHTML]='orderData.diagnosis'>
+            </div>
+        </div>
+        <br>
+    <h1>Description about pacient</h1>
       <br>
       <br>
       <div class="ui-g form-group">
@@ -27,7 +52,7 @@
 <!-- //<p-fieldset legend="Intervention info" [toggleable]="true"></p-fieldset> -->
 <!-- <p-fieldset legend="Intervention info" [toggleable]="true"></p-fieldset> -->
 <div class="card card-w-title">
-    <h1>Description about the problem:</h1>
+    <h1>Description about the problem</h1>
     
     <p-fieldset>
         {{orderData.description}}
@@ -36,28 +61,36 @@
 </div>
 <!-- </p-fieldset> -->
 
-<p-gmap [overlays]="overlays" [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
-<br>
-<h1>Diagnosis:</h1>
-<br>
-<p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
-<br>
-<h2 style="text-align: center">Review for pacient:</h2>
-<p-rating [(ngModel)]="val" [cancel]="false" style="text-align: center; size:25px"></p-rating>
-<input style="width: 100%" type="text" pInputText />
+<div *ngIf="orderData.status == 'Accepted'">
+
+    <p-gmap [overlays]="overlays" [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
+    <br>
+    <h1>Diagnosis</h1>
+    <br>
+    <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+    <br>
+    
+
+</div>
+
+<div *ngIf="orderData.status == 'Completed'">
+    <h2 style="text-align: center">Review for pacient:</h2>
+    <p-rating [(ngModel)]="val" [cancel]="false" style="text-align: center; size:25px"></p-rating>
+    <input style="width: 100%" type="text" pInputText />
+</div>
 
 <br>
 <br>
 
-<div class="ui-g dashboard">
+<div *ngIf="userData && orderData && orderData.status == 'Accepted'" class="ui-g dashboard">
     <div class="ui-g-12 ui-md-4">
-        <div class="overview-box overview-box-2">
+        <a [href]="'tel' + ':' + userData.phone" class="overview-box overview-box-2">
             <div class="overview-box-header"></div>
             <div class="overview-box-content">
                 <div class="overview-box-icon"><i class="material-icons">call</i></div>
                 <div class="overview-box-title">Make a call</div>
             </div>
-        </div>
+        </a>
     </div>
 
     <div class="ui-g-12 ui-md-4">

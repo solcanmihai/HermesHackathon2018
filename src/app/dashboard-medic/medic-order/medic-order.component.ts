@@ -73,6 +73,26 @@ export class MedicOrderComponent implements OnInit {
       emergency_id: this.orderId,
       token: this.authService.getToken()
     })
+    setTimeout(() => {
+      this.dataService.getOrderById(this.orderId).subscribe(data => {
+          this.orderData = data;
+
+          console.log(data);
+
+          this.options = {
+            center: {lat: data['lat'], lng: data['long']},
+            zoom: 12
+          };
+          this.overlays.push(new google.maps.Marker({position: {lat: data['lat'], lng: data['long']}, title:"Pacient"}))
+          
+
+          console.log(this.overlays);
+
+          this.dataService.getUserData(data['user_id']).subscribe(userData => {
+            this.userData = userData;
+          })
+        })
+    }, 1300)
   }
 
 }

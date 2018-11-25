@@ -25,6 +25,10 @@ export class DataService {
     return this.http.post(API_PATH + '/emergency', body);
   }
 
+  sendReview(rating, emergency_id, description){
+    return this.http.post(API_PATH + '/rate', {token: this.authService.getToken(), rating, emergency_id, description})
+  }
+
   getPendingOrders(){
     return this.http.post(API_PATH + '/getEmergencies', {token: this.authService.getToken()})
   }

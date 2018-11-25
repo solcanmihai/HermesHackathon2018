@@ -15,7 +15,14 @@
             </ng-template>
     </p-fieldset> 
 
-    <div *ngIf="order.status == 'Accepted'">
+    <div *ngIf="order.status == 'Accepted' && locationEnabled">
         <p-gmap [overlays]="overlays" [options]="options" [style]="{'width':'100%','height':'320px'}"></p-gmap>
+    </div>
+    
+    <div *ngIf="order.status == 'Completed'">
+        <h2 style="text-align: center">Review for pacient:</h2>
+        <p-rating [(ngModel)]="reviewVal" [cancel]="false" style="text-align: center; size:25px"></p-rating>
+        <input [(ngModel)]="reviewText" style="width: 100%" type="text" pInputText />
+        <button (click)="sendReview()">Send review</button>
     </div>
 </div>

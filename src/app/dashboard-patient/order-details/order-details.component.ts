@@ -55,6 +55,7 @@ export class OrderDetailsComponent implements OnInit {
       ];
       this.listenForAccept();
       this.getMedicPosition();
+      this.listenForDiagnosted();
   }
 
   getMedicPosition(){
@@ -62,6 +63,17 @@ export class OrderDetailsComponent implements OnInit {
       if(value['user_id'] == this.order['medic_id']){
         this.medicPosition = value;
         this.overlays.push(new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}));
+      }
+    })
+  }
+
+  listenForDiagnosted(){
+    this.socket.on("diagnostic", value => {
+      console.log('Asta este')
+      console.log(value)
+        
+      if(value['emergency_id'] == this.id){
+        this.getData();
       }
     })
   }

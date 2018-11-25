@@ -154,6 +154,10 @@ import { MedicOrderComponent } from './medic-order/medic-order.component';
             component: DashboardComponent
           },
           {
+            path: 'medicOrder/:id',
+            component: MedicOrderComponent
+          },
+          {
             path: 'chat/:id',
             component: MedicChatComponent
           }

@@ -4,9 +4,11 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   imports: [
+    ChartModule,
+    FormsModule ,
     CommonModule,
     RouterModule.forRoot([
       {
@@ -16,7 +18,6 @@ import { FormsModule } from '@angular/forms';
         component: LoginComponent, path: 'login'
       }
     ]),
-    FormsModule
   ],
   declarations: [LandingComponent, LoginComponent]
 })

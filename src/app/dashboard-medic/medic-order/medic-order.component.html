@@ -37,7 +37,44 @@
 <h1>Diagnosis:</h1>
 <br>
 <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+<br>
+<h2 style="text-align: center">Review for pacient:</h2>
+<p-rating [(ngModel)]="val" [cancel]="false" style="text-align: center; size:25px"></p-rating>
+<input style="width: 100%" type="text" pInputText />
 
+<br>
+<br>
+
+<div class="ui-g dashboard">
+    <div class="ui-g-12 ui-md-4">
+        <div class="overview-box overview-box-2">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">call</i></div>
+                <div class="overview-box-title">Make a call</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+        <div class="overview-box overview-box-1">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">check</i></div>
+                <div class="overview-box-title">Finish Diagnosis</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+        <div class="overview-box overview-box-3">
+            <div class="overview-box-header"></div>
+            <div class="overview-box-content">
+                <div class="overview-box-icon"><i class="material-icons">message</i></div>
+                <div class="overview-box-title">Send a Message</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

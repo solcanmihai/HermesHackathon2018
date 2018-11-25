@@ -25,6 +25,10 @@ export class DataService {
     return this.http.post(API_PATH + '/emergency', body);
   }
 
+  getPendingOrders(){
+    return this.http.post(API_PATH + '/getEmergencies', {token: this.authService.getToken()})
+  }
+
 
   getOrdersHistory(){
     let token = this.authService.getToken();

@@ -35,6 +35,6 @@ export class DataService {
     let body = {
       token
     }
-    return this.http.post(API_PATH + '/getEmergencies', body);
+    return this.http.post(API_PATH + '/getMyEmergencies', body);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
   long = null;
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,8 @@ export class DashboardComponent implements OnInit {
 
   handleClick(){
     this.dataService.sendHelpRequest(this.description, this.lat, this.long).subscribe(data => {
-      //console.log(data);
+      console.log('wtf')
+      this.router.navigateByUrl('/patient-dashboard')
     })
   }
 

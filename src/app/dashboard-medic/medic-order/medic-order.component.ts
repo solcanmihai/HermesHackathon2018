@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 import { ActivatedRoute } from '@angular/router';
 import { OrderDetailsComponent } from 'src/app/dashboard-patient/order-details/order-details.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { DataService } from 'src/app/services/data.service';
+import { unusedValueExportToPlacateAjd } from '@angular/core/src/render3/interfaces/node';
 declare var google: any;
 
 @Component({
@@ -20,10 +22,13 @@ export class MedicOrderComponent implements OnInit {
   constructor(
     private socket: Socket,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private dataService: DataService
   ) { }
 
   text: any
+
+  userData;
 
   orderId;
 
@@ -31,19 +36,33 @@ export class MedicOrderComponent implements OnInit {
 
   overlays: any[];
 
-  ngOnInit() {
-      this.options = {
-          center: {lat: 36.890257, lng: 30.707417},
-          zoom: 12
-      };
+  orderData;
 
-      this.overlays = [
-        new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}),
-        new google.maps.Marker({position: {lat: 36.883707, lng: 30.689216}, title:"Ataturk Park"}),
-      ];
+  ngOnInit() {
+      this.overlays = [];
 
       this.activatedRoute.params.subscribe(params => {
         this.orderId = params['id'];
+
+        this.dataService.getOrderById(this.orderId).subscribe(data => {
+          this.orderData = data;
+
+          console.log(data);
+
+          this.options = {
+            center: {lat: data['lat'], lng: data['long']},
+            zoom: 12
+          };
+          this.overlays.push(new google.maps.Marker({position: {lat: data['lat'], lng: data['long']}, title:"Pacient"}))
+          
+
+          console.log(this.overlays);
+
+          this.dataService.getUserData(data['user_id']).subscribe(userData => {
+            this.userData = userData;
+          })
+        })
+
       })
   }
 

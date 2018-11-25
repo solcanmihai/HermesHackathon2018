@@ -33,6 +33,9 @@ export class DataService {
     return this.http.post(API_PATH + '/getEmergencies', {token: this.authService.getToken()})
   }
 
+  getUserData(id){
+    return this.http.get(API_PATH + '/user/' + id);
+  }
 
   getOrdersHistory(){
     let token = this.authService.getToken();

@@ -4,6 +4,7 @@ import { interval, Subscription} from 'rxjs';
 import { Socket } from 'ngx-socket-io';
 import { AuthService } from '../../services/auth.service';
 import 'rxjs/add/operator/map';
+import { identifierModuleUrl } from '@angular/compiler';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class DashboardComponent implements OnInit {
   long = null;
   subscription: Subscription;
 
+  pendingOrders;
   
   constructor(
     private dataService: DataService,
@@ -26,7 +28,11 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataService.getPendingOrders().subscribe(data => {
+      this.pendingOrders = data;
+    })
     const source = interval(10000/2);
+    this.removeAccepted();
     this.subscription = source.subscribe(val => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -38,13 +44,22 @@ export class DashboardComponent implements OnInit {
         alert("Geolocation is not supported by this browser.");
       }
     });
-
-
-    
+    this.getMessage();
   }
 
   ngOnDestroy(){
     this.subscription.unsubscribe();
+  }
+
+  removeAccepted(){
+    this.socket.on("message", value => {
+      if(value['delete']){
+        this.pendingOrders = this.pendingOrders.filter(x => {
+          return x['emergency_id'] != value['emergency_id']
+        })
+        console.log(value);
+      }
+    })
   }
 
   sendMessage(){
@@ -60,8 +75,22 @@ export class DashboardComponent implements OnInit {
 
   getMessage() {
     return this.socket.on("message", value => {
-        console.log('s')
+      if(value['delete']){
+        return;
+      }
+      this.pendingOrders.push(value);
     })}
+
+  acceptOrder(order){
+    let emergency_id = order['emergency_id'];
+    this.socket.emit("message", {emergency_id, token: this.authService.getToken()})
+  }
+
+  removeFromList(order){
+    this.pendingOrders = this.pendingOrders.filter(x => {
+      return x != order
+    })
+  }
 
 //   getMessage() {
 //     return this.socket

@@ -1,22 +1,25 @@
 <div class="ui-g dashboard">
+<div class="ui-g-12">
+    <h2>Pending orders</h2>
+</div>
   
-  <div class="ui-g-12 ui-lg-4">
-      <div class="task-box task-box-1">
+  <div class="ui-g-12 ui-lg-12">
+      <div *ngFor="let order of pendingOrders" class="task-box task-box-1" style="margin-bottom: 18px">
           <div class="task-box-header">
           </div>
           <div class="task-box-content">
-              <h3>Client Meeting</h3>
-              <p>Waiting brief from the client</p>
+              <h3>{{order.date}} </h3>
+              <p>{{order.description}}</p>
           </div>
           <div class="task-box-footer">
               <div class="image-box-footer">
-                <button class="remove-btn red-btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" icon="ui-icon-close" label="Close" pbutton="" style="margin-right:4px;" title="Close" type="button">
+                <button (click)="removeFromList(order)" class="remove-btn red-btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" icon="ui-icon-close" label="Close" pbutton="" style="margin-right:4px;" title="Close" type="button">
                   <span aria-hidden="true" class="ui-button-icon-left ui-clickable ui-icon-close"></span>
                   <span class="ui-button-text ui-clickable">Reject Offer</span>
                   <span class="ink ripple-animate" style="height: 85px; width: 85px; top: -27.2344px; left: -9.4375px; pointer-events: none;"></span>
                 </button>
-                <button class="remove-btn green-btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" icon="ui-icon-close" label="Close" pbutton="" style="margin-right:4px;" title="Close" type="button">
-                  <span aria-hidden="true" class="ui-button-icon-left ui-clickable ui-icon-close"></span>
+                <button (click)="acceptOrder(order)" class="remove-btn green-btn ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" icon="ui-icon-close" label="Close" pbutton="" style="margin-right:4px;" title="Close" type="button">
+                  <span aria-hidden="true" class="ui-button-icon-left ui-clickable ui-icon-accept"></span>
                   <span class="ui-button-text ui-clickable">Accept Offer</span>
                   <span class="ink ripple-animate" style="height: 85px; width: 85px; top: -27.2344px; left: -9.4375px; pointer-events: none;"></span>
                 </button>

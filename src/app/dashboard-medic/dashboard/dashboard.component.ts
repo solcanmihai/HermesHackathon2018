@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { interval, Subscription} from 'rxjs';
 import { Socket } from 'ngx-socket-io';
-import { AuthService } from '../../services/auth.service';
 import 'rxjs/add/operator/map';
 import { identifierModuleUrl } from '@angular/compiler';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private socket: Socket,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -85,6 +87,7 @@ export class DashboardComponent implements OnInit {
   acceptOrder(order){
     let emergency_id = order['emergency_id'];
     this.socket.emit("message", {emergency_id, token: this.authService.getToken()})
+    this.router.navigateByUrl('/medic-dashboard/medicOrder/' + emergency_id);
   }
 
   removeFromList(order){

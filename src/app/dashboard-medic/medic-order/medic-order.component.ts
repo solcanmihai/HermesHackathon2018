@@ -13,6 +13,7 @@ export class MedicOrderComponent implements OnInit {
 
   constructor() { }
 
+  text: any
 
   options: any;
 

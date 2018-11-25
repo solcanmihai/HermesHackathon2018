@@ -6,6 +6,7 @@ import { DataService } from 'src/app/services/data.service';
 import { interval, Subscription} from 'rxjs';
 import { Socket } from 'ngx-socket-io';
 import 'rxjs/add/operator/map';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 @Component({
   selector: 'app-order-details',
@@ -31,6 +32,7 @@ export class OrderDetailsComponent implements OnInit {
   medicPosition;
 
   overlays: any[];
+  med;
 
   reviewVal;
   reviewText;
@@ -40,6 +42,10 @@ export class OrderDetailsComponent implements OnInit {
       console.log(data);
       this.order = data;
       this.dataLoaded = true;
+
+      this.dataService.getUserData(this.order['medic_id']).subscribe(datax => {
+        this.med = datax;
+      })
     })
   }
 

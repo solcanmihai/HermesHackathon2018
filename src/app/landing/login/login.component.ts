@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,13 @@ export class LoginComponent implements OnInit {
   password;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router 
   ) { }
 
   ngOnInit() {
+    this.email = ''
+    this.password = ''
   }
 
   blurMail(event){
@@ -39,6 +43,12 @@ export class LoginComponent implements OnInit {
   handleLogin(){
     console.log('Hello')
     this.authService.login(this.email, this.password);
+    if(this.email == 'medic@yahoo.com'){
+      this.router.navigateByUrl('/medic-dashboard');
+    }
+    else{
+      this.router.navigateByUrl('/patient-dashboard');
+    }
   }
 
 }

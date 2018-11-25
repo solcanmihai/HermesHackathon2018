@@ -91,9 +91,6 @@ export class OrderDetailsComponent implements OnInit {
 
   listenForDiagnosted(){
     this.socket.on("diagnostic", value => {
-      console.log('Asta este')
-      console.log(value)
-        
       if(value['emergency_id'] == this.id){
         this.getData();
       }

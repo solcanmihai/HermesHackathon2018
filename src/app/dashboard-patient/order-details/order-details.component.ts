@@ -26,10 +26,14 @@ export class OrderDetailsComponent implements OnInit {
   id;
   options: any;
   subscription: Subscription;
+  locationEnabled;
 
   medicPosition;
 
   overlays: any[];
+
+  reviewVal;
+  reviewText;
 
   getData(){
     this.dataService.getOrderById(this.id).subscribe(data => {
@@ -44,10 +48,19 @@ export class OrderDetailsComponent implements OnInit {
         this.id = params['userId']
         this.getData();
       });
-      this.options = {
-          center: {lat: 36.890257, lng: 30.707417},
-          zoom: 12
-      };
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log('fakljds');
+          this.locationEnabled = true
+          this.options = {
+            center: {lat: position.coords.latitude, lng: position.coords.longitude},
+            zoom: 12
+          };
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+      
 
       this.overlays = [
         // new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}),
@@ -62,8 +75,15 @@ export class OrderDetailsComponent implements OnInit {
     this.socket.on("location", value => {
       if(value['user_id'] == this.order['medic_id']){
         this.medicPosition = value;
-        this.overlays.push(new google.maps.Marker({position: {lat: 36.879466, lng: 30.667648}, title:"Konyaalti"}));
+        console.log(value);
+        this.overlays.push(new google.maps.Marker({position: {lat: value['lat'], lng: value['long']}, title:"Konyaalti"}));
       }
+    })
+  }
+
+  sendReview(){
+    this.dataService.sendReview(this.reviewVal, this.id, this.reviewText).subscribe(data => {
+      console.log(data);
     })
   }
 
